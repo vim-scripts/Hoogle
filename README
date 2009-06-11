@@ -1,0 +1,5 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=2672
+
+This plugin query hoogle for you and display the results in a special window. Commands are provided to quickly open/close the window.
+
+GitHub : https://github.com/Twinside/vim-hoogle
