@@ -2,7 +2,7 @@
 " What Is This: Perform a search on local hoogle and display the results on
 "               a scratch buffer.
 " File: hoogle.vim
-" Author: Vincent Berthoux <twinside@gmail.com>
+" Author: Vincent B <twinside@gmail.com>
 " Last Change: 2009 june 11
 " Version: 1.0
 " Thanks:
@@ -20,6 +20,7 @@
 "           Name of the search buffer, default HoogleSearch
 "
 " ChangeLog:
+"       1.1: resize un function of line count
 "       1.0: initial version
 if exists("g:__HOOGLE_VIM__")
     finish
@@ -42,6 +43,8 @@ function! s:ScratchMarkBuffer()
     setlocal bufhidden=wipe
     setlocal noswapfile
     setlocal buflisted
+    setlocal nonumber
+    setlocal statusline=%F
 endfunction
 
 " return -1 if no windows was open
@@ -91,7 +94,7 @@ fun! HoogleLookup( search ) "{{{
     execute '.!hoogle --n=' . g:hoogle_search_count  . ' "' . a:search . '"'
     setl nomodifiable
     
-    execute 'resize ' . g:hoogle_search_count
+    execute 'resize ' . line( '$' )
 
     let win_num = bufwinnr( last_buffer )
     " We must get a real window number, or
