@@ -3,8 +3,8 @@
 "               a scratch buffer.
 " File: hoogle.vim
 " Author: Vincent B <twinside@gmail.com>
-" Last Change: 2009 june 11
-" Version: 1.0
+" Last Change: 2009 December 04
+" Version: 1.2
 " Thanks:
 " Usage:
 "       :Hoogle <search>
@@ -20,8 +20,9 @@
 "           Name of the search buffer, default HoogleSearch
 "
 " ChangeLog:
-"       1.1: resize un function of line count
-"       1.0: initial version
+"       1.2: removed folding for the window.
+"       1.1: resize un function of line count.
+"       1.0: initial version.
 if exists("g:__HOOGLE_VIM__")
     finish
 endif
@@ -45,6 +46,7 @@ function! s:ScratchMarkBuffer()
     setlocal buflisted
     setlocal nonumber
     setlocal statusline=%F
+    setlocal nofoldenable
 endfunction
 
 " return -1 if no windows was open
