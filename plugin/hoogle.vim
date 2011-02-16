@@ -3,23 +3,11 @@
 "               a scratch buffer.
 " File: hoogle.vim
 " Author: Vincent B <twinside@gmail.com>
-" Last Change: 2009 December 04
-" Version: 1.2
+" Last Change: 2011 fb. 16
+" Version: 1.3
 " Thanks:
-" Usage:
-"       :Hoogle <search>
-"       :HoogleClose
-"       :HoogleLine
-"
-" Additional:
-"     * g:hoogle_search_count
-"           Define it with the number of max results to get,
-"           default is 10
-"
-"     * g:hoogle_search_buf_name
-"           Name of the search buffer, default HoogleSearch
-"
 " ChangeLog:
+"       1.3: Updated to the latest hoogle version, adding proper documenation
 "       1.2: removed folding for the window.
 "       1.1: resize un function of line count.
 "       1.0: initial version.
@@ -93,7 +81,7 @@ fun! HoogleLookup( search ) "{{{
 
     call s:ScratchMarkBuffer()
 
-    execute '.!hoogle --n=' . g:hoogle_search_count  . ' "' . a:search . '"'
+    execute '.!hoogle -n=' . g:hoogle_search_count  . ' "' . a:search . '"'
     setl nomodifiable
     
     execute 'resize ' . line( '$' )
